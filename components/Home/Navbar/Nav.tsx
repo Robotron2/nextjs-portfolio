@@ -56,7 +56,7 @@ const Nav = ({ openNav }: NavProps) => {
 						<span>Download CV</span>
 					</button>
 					{/* Burger */}
-					<HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white" onClick={openNav} />
+					<HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white lg:hidden" onClick={openNav} />
 				</div>
 			</div>
 			Nav
