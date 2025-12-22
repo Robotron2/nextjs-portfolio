@@ -7,7 +7,11 @@ import { BiDownload } from "react-icons/bi"
 import { FaCode } from "react-icons/fa"
 import { HiBars3BottomRight } from "react-icons/hi2"
 
-const Nav = () => {
+type NavProps = {
+	openNav: () => void
+}
+
+const Nav = ({ openNav }: NavProps) => {
 	const [navBg, setNavBg] = useState(false)
 	useEffect(() => {
 		const handler = () => {
@@ -52,7 +56,7 @@ const Nav = () => {
 						<span>Download CV</span>
 					</button>
 					{/* Burger */}
-					<HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white" />
+					<HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white" onClick={openNav} />
 				</div>
 			</div>
 			Nav
