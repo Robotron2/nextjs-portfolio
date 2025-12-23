@@ -5,7 +5,7 @@
 @layer base {
     :root {
         /* Deep purple - #120734 */
-        --background: 255, 76%, 12%;
+        --background: hsl(256, 79%, 4%);
 
         /* White - #ffffff */
         --foreground: 0, 0%, 100%;
@@ -17,7 +17,14 @@
         --primary-dark: 260, 66%, 28%;
 
         /* Deep purple - #120734 */
-        --secondary: 255, 76%, 12%;
+        --secondary: 256, 79%, 6%;
+
+        /* Deeper purple(light) - #182346 */
+        --tertiary: 226, 49%, 18%;
+
+        /* Deeper purple (deep)- #121b38 */
+        --tertiary-dark: 226, 51%, 15%;
+
 
         /* accent-light - #8f4793 */
         --accent: 297, 35%, 43%;

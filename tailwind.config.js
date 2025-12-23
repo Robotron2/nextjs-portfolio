@@ -11,7 +11,7 @@ module.exports = {
 	theme: {
 		container: {
 			center: true,
-			padding: "2rem",
+			padding: "0.6rem",
 			screens: {
 				"2xl": "1400px",
 			},
@@ -30,6 +30,10 @@ module.exports = {
 				},
 				secondary: {
 					DEFAULT: "hsl(var(--secondary))",
+				},
+				tertiary: {
+					DEFAULT: "hsl(var(--tertiary))",
+					dark: "hsl(var(--tertiary-dark))",
 				},
 
 				accent: {
