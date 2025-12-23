@@ -1,1 +1,28 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Deep purple - #120734 */
+        --background: 255, 76%, 12%;
+
+        /* White - #ffffff */
+        --foreground: 0, 0%, 100%;
+
+        /*light purple - #3433b0 */
+        --primary: 240, 55%, 45%;
+
+        /* dark purple - #381877 */
+        --primary-dark: 260, 66%, 28%;
+
+        /* Deep purple - #120734 */
+        --secondary: 255, 76%, 12%;
+
+        /* accent-light - #8f4793 */
+        --accent: 297, 35%, 43%;
+
+        /*accent-dark #76276b*/
+        --accent-dark: 308, 50%, 31%;
+    }
+}

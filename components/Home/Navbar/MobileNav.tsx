@@ -9,26 +9,38 @@ type MobileNavProps = {
 }
 
 const MobileNav = ({ showNav, closeNav }: MobileNavProps) => {
+	// Determine translation and pointer events
 	const navOpen = showNav ? "translate-x-0" : "translate-x-[100%]"
+
 	return (
 		<div>
 			{/* overlay */}
 			<div
-				className={`fixed inset-0 ${navOpen} transform transition-all right-0 duration-500 z-100002 bg-black opacity-70 w-full h-screen`}></div>
+				className={`fixed ${navOpen} transform transition-all duration-500 inset-0 z-[1000] bg-black opacity-70 w-full h-screen ${
+					showNav ? "pointer-events-auto" : "pointer-events-none"
+				}`}
+				onClick={closeNav}
+			/>
+
 			{/* Navlinks */}
 			<div
-				className={`text-white ${navOpen} fixed justify-center flex flex-col h-full transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-cyan-800 space-y-6 z-1000050 right-0`}>
+				className={`text-foreground ${navOpen} fixed justify-center flex flex-col h-full transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-accent space-y-6 z-[10002] right-0 ${
+					showNav ? "pointer-events-auto" : "pointer-events-none"
+				}`}>
 				{NavLinks.map((link) => {
 					return (
-						<Link key={link.id} href={link.url}>
-							<p className="text-white w-fit text-xl ml-12 border-b-[1.5px] pb-1 border-white sm:text-[30px]">
+						<Link key={link.id} href={link.url} onClick={closeNav}>
+							<p className="text-foreground w-fit text-xl ml-12 border-b-[1.5px] pb-1 border-foreground sm:text-[30px]">
 								{link.label}
 							</p>
 						</Link>
 					)
 				})}
 				{/* Close btn */}
-				<CgClose className="absolute top-6 right-[1.4rem] sm:w-8 sm:h-8 w-6 h-6" onClick={closeNav} />
+				<CgClose
+					className="absolute top-6 right-[1.4rem] sm:w-8 sm:h-8 w-6 h-6 cursor-pointer"
+					onClick={closeNav}
+				/>
 			</div>
 		</div>
 	)

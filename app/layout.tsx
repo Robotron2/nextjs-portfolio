@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${poppins.className} antialiased bg-[#0d0d1f]`}>
+			<body className={`${poppins.className} antialiased bg-secondary`}>
 				<ResponsiveNav />
 				{children}
 			</body>

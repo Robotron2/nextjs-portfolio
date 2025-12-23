@@ -8,9 +8,11 @@ const ResponsiveNav = () => {
 
 	const openNavHandler = () => {
 		setShowNav(true)
+		console.log("Clicked to open")
 	}
 	const closeNavHandler = () => {
 		setShowNav(false)
+		console.log("Clicked to close")
 	}
 	return (
 		<div>
