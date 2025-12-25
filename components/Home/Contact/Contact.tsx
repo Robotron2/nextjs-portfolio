@@ -2,15 +2,15 @@
 import React, { useState } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import emailjs from "@emailjs/browser"
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser"
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi"
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa"
+import { FaInstagram, FaTwitter } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa6"
 
-// Validation schema for the form
 const validationSchema = Yup.object({
-	user_name: Yup.string().required("Name is required"),
-	user_email: Yup.string().email("Invalid email address").required("Email is required"),
-	user_phone: Yup.string().required("Mobile Number is required"),
+	name: Yup.string().required("Name is required"),
+	email: Yup.string().email("Invalid email address").required("Email is required"),
+	phone: Yup.string().required("Mobile Number is required"),
 	message: Yup.string().required("Message is required"),
 })
 
@@ -21,9 +21,9 @@ const Contact = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			user_name: "",
-			user_email: "",
-			user_phone: "",
+			name: "",
+			email: "",
+			phone: "",
 			message: "",
 		},
 		validationSchema,
@@ -32,20 +32,18 @@ const Contact = () => {
 			setErrorMessage("")
 			setSuccessMessage("")
 
-			const YOUR_SERVICE_ID = "YOUR_SERVICE_ID_PLACEHOLDER"
-			const YOUR_TEMPLATE_ID = "YOUR_TEMPLATE_ID_PLACEHOLDER"
-			const YOUR_PUBLIC_KEY = "YOUR_PUBLIC_KEY_PLACEHOLDER"
+			const YOUR_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+			const YOUR_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+			const YOUR_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
 
 			emailjs
 				.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, values, YOUR_PUBLIC_KEY)
 				.then(
-					(result) => {
-						console.log("Email sent successfully:", result.text)
+					(result: EmailJSResponseStatus) => {
 						setSuccessMessage("Message sent successfully!")
 						resetForm()
 					},
-					(error) => {
-						console.error("Failed to send email:", error.text)
+					(error: EmailJSResponseStatus) => {
 						setErrorMessage("Failed to send message. Please try again.")
 					}
 				)
@@ -54,7 +52,7 @@ const Contact = () => {
 					setTimeout(() => {
 						setSuccessMessage("")
 						setErrorMessage("")
-					}, 5000)
+					}, 3000)
 				})
 		},
 	})
@@ -65,7 +63,7 @@ const Contact = () => {
 	return (
 		<div className="container py-16">
 			<div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-				{/* Text & Contact Info - Left Side */}
+				{/*Left  */}
 				<div>
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
 						Schedule a call with me to see if I can help
@@ -77,18 +75,20 @@ const Contact = () => {
 					<div className="space-y-6">
 						<div className="flex items-center space-x-4">
 							<BiPhone className="w-7 h-7 text-accent shrink-0" />
-							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">+893473289</p>
+							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
+								+234 903 439 2134
+							</p>
 						</div>
 						<div className="flex items-center space-x-4">
 							<BiEnvelope className="w-7 h-7 text-accent shrink-0" />
 							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
-								hello@example.com
+								theophilusadesola002@gmail.com
 							</p>
 						</div>
 						<div className="flex items-center space-x-4">
 							<BiMap className="w-7 h-7 text-accent shrink-0" />
 							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
-								Dhaka, Bangladesh
+								Lagos, Nigeria
 							</p>
 						</div>
 					</div>
@@ -96,10 +96,9 @@ const Contact = () => {
 					{/* Social Icons */}
 					<div className="flex items-center mt-10 space-x-4">
 						{[
-							{ icon: FaFacebookF, color: "hover:bg-blue-800" },
-							{ icon: FaYoutube, color: "hover:bg-red-600" },
-							{ icon: FaTwitter, color: "hover:bg-sky-400" },
-							{ icon: FaInstagram, color: "hover:bg-pink-800" },
+							{ icon: FaLinkedin, color: "hover:bg-blue-800", url: "" },
+							{ icon: FaTwitter, color: "hover:bg-sky-400", url: "" },
+							{ icon: FaInstagram, color: "hover:bg-pink-800", url: "" },
 						].map(({ icon: Icon, color }, index) => (
 							<a
 								key={index}
@@ -111,54 +110,54 @@ const Contact = () => {
 					</div>
 				</div>
 
-				{/* Form - Right Side */}
+				{/* Right Side */}
 				<div className="md:p-10 p-6 bg-tertiary-dark rounded-xl shadow-lg">
 					<form onSubmit={formik.handleSubmit} className="space-y-5">
-						{/* Name Input */}
+						{/* Name  */}
 						<div>
 							<input
 								type="text"
-								name="user_name"
+								name="name"
 								placeholder="Name"
 								className={inputStyles}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.user_name}
+								value={formik.values.name}
 							/>
-							{formik.touched.user_name && formik.errors.user_name && (
-								<div className="text-red-500 text-sm mt-1">{formik.errors.user_name}</div>
+							{formik.touched.name && formik.errors.name && (
+								<div className="text-red-500 text-sm mt-1">{formik.errors.name}</div>
 							)}
 						</div>
 
-						{/* Email Input */}
+						{/* Email  */}
 						<div>
 							<input
 								type="email"
-								name="user_email"
+								name="email"
 								placeholder="Email Address"
 								className={inputStyles}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.user_email}
+								value={formik.values.email}
 							/>
-							{formik.touched.user_email && formik.errors.user_email && (
-								<div className="text-red-500 text-sm mt-1">{formik.errors.user_email}</div>
+							{formik.touched.email && formik.errors.email && (
+								<div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
 							)}
 						</div>
 
-						{/* Mobile Number Input */}
+						{/* Mobile Number  */}
 						<div>
 							<input
 								type="text"
-								name="user_phone"
+								name="phone"
 								placeholder="Mobile Number"
 								className={inputStyles}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.user_phone}
+								value={formik.values.phone}
 							/>
-							{formik.touched.user_phone && formik.errors.user_phone && (
-								<div className="text-red-500 text-sm mt-1">{formik.errors.user_phone}</div>
+							{formik.touched.phone && formik.errors.phone && (
+								<div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div>
 							)}
 						</div>
 
@@ -179,8 +178,10 @@ const Contact = () => {
 						</div>
 
 						{/* Form Status Messages */}
-						{successMessage && <p className="text-green-500 text-center font-medium">{successMessage}</p>}
-						{errorMessage && <p className="text-red-500 text-center font-medium">{errorMessage}</p>}
+						{successMessage && (
+							<p className="text-green-500 text-center font-medium text-lg">{successMessage}</p>
+						)}
+						{errorMessage && <p className="text-red-500 text-center font-medium text-lg">{errorMessage}</p>}
 
 						{/* Submit Button */}
 						<button
