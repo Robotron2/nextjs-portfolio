@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "./globals.css"
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav"
+import Footer from "@/components/Home/Footer/Footer"
+import ScrollToTop from "@/components/Helper/ScrollToTop"
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -21,10 +23,12 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="scroll-smooth">
 			<body className={`${poppins.className} antialiased bg-secondary`}>
 				<ResponsiveNav />
 				{children}
+				<Footer />
+				<ScrollToTop />
 			</body>
 		</html>
 	)
