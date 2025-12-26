@@ -65,10 +65,14 @@ const Skills = () => {
 			</h1>
 
 			<div className="w-[90%] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-16">
-				{skills.map((skill) => {
+				{skills.map((skill, i) => {
 					return (
 						<Tilt key={skill.name} scale={1.1} transitionSpeed={2500} tiltMaxAngleX={15} tiltMaxAngleY={15}>
-							<div className="bg-tertiary-dark h-full p-6 rounded-2xl flex flex-col items-center justify-center shadow-lg cursor-pointer transition-all duration-300 group">
+							<div
+								data-aos="flip-right"
+								data-aos-anchor-placement="top-center"
+								data-aos-delay={i * 100}
+								className="bg-tertiary-dark h-full p-6 rounded-2xl flex flex-col items-center justify-center shadow-lg cursor-pointer transition-all duration-300 group">
 								<div className="text-5xl md:text-6xl mb-4 text-foreground opacity-80 group-hover:text-accent group-hover:opacity-100 transition-all duration-300">
 									{skill.icon}
 								</div>

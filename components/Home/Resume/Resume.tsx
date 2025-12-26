@@ -13,7 +13,7 @@ const Resume = () => {
 					<h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
 						My Work <span className="text-accent">Experience</span>
 					</h1>
-					<div className="space-y-6">
+					<div className="space-y-6" data-aos="zoom-in" data-aos-anchor-placement="top-center">
 						<ResumeCard
 							Icon={FaLayerGroup}
 							// date="2024 - Present"
@@ -43,7 +43,7 @@ const Resume = () => {
 				</div>
 
 				{/* My Education */}
-				<div>
+				<div data-aos="zoom-out" data-aos-anchor-placement="top-center" data-aos-delay="300">
 					<h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
 						My <span className="text-accent">Education</span>
 					</h1>

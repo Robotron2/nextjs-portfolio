@@ -113,7 +113,11 @@ const Contact = () => {
 				</div>
 
 				{/* Right Side (Form) */}
-				<div className="p-5 sm:p-6 md:p-10 bg-tertiary-dark rounded-xl shadow-lg">
+				<div
+					className="p-5 sm:p-6 md:p-10 bg-tertiary-dark rounded-xl shadow-lg"
+					data-aos="zoom-in"
+					data-aos-anchor-placement="top-center"
+					data-aos-delay="0">
 					<form onSubmit={formik.handleSubmit} className="space-y-5">
 						{/* Name */}
 						<div>
