@@ -6,7 +6,7 @@ import { IoSchool } from "react-icons/io5" // Added an icon for education
 
 const Resume = () => {
 	return (
-		<div className="container pt-20 pb-16 bg-[0f142e]">
+		<div className="container pt-20 pb-16 mb-8 bg-[0f142e]" id="resume">
 			<div className="w-[95%] sm:w-[90%] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
 				{/* My Work Experience */}
 				<div>

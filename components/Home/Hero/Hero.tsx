@@ -8,11 +8,13 @@ import ParticlesHero from "./ParticleBackground"
 
 const Hero = () => {
 	return (
-		<div className="relative h-screen flex items-center justify-center overflow-hidden flex-col bg-[#0f142e">
+		<div
+			className="relative h-screen flex items-center justify-center overflow-hidden flex-col bg-[#0f142e"
+			id="about">
 			<ParticlesHero />
 
 			{/* Main Content */}
-			<div className="container relative z-10 flex flex-col items-center -mt-16 w-[90%] mx-auto">
+			<div className="container relative z-10 flex flex-col items-center mt-14 md:-mt-16 w-[90%] mx-auto">
 				<div className="relative">
 					<Image
 						src="/images/Robotronpfp.png"

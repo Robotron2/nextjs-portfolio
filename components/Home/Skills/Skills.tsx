@@ -59,7 +59,7 @@ const skills = [
 
 const Skills = () => {
 	return (
-		<div className="container py-16">
+		<div className="container py-16 mb-8" id="skills">
 			<h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-foreground">
 				My <span className="text-accent">Skills</span>
 			</h1>

@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard"
 
 const Service = () => {
 	return (
-		<div className="container py-16">
+		<div className="container py-16 mb-8" id="services">
 			<h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-foreground">
 				Delivering results <br /> for <span className="text-accent">brands</span> and{" "}
 				<span className="text-accent">agencies</span>.

@@ -57,13 +57,14 @@ const Contact = () => {
 		},
 	})
 
+	// UPDATE: Changed text-xl to text-base for mobile, returning to text-xl on sm screens
 	const inputStyles =
-		"w-full px-4 py-2.5 bg-secondary text-xl text-foreground rounded-md outline-none placeholder:text-foreground opacity-70 focus:ring-2 focus:ring-accent/50 transition-all duration-300"
+		"w-full px-4 py-3 bg-secondary text-base sm:text-xl text-foreground rounded-md outline-none placeholder:text-foreground opacity-70 focus:ring-2 focus:ring-accent/50 transition-all duration-300"
 
 	return (
-		<div className="container py-16">
+		<div className="container py-16 mb-8" id="contact">
 			<div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-				{/*Left  */}
+				{/* Left Side (Contact Info) */}
 				<div>
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
 						Schedule a call with me to see if I can help
@@ -74,27 +75,28 @@ const Contact = () => {
 
 					<div className="space-y-6">
 						<div className="flex items-center space-x-4">
-							<BiPhone className="w-7 h-7 text-accent shrink-0" />
-							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
+							<BiPhone className="w-6 h-6 sm:w-7 sm:h-7 text-accent shrink-0" />
+							<p className="text-base sm:text-lg md:text-xl font-semibold text-foreground opacity-90">
 								+234 903 439 2134
 							</p>
 						</div>
 						<div className="flex items-center space-x-4">
-							<BiEnvelope className="w-7 h-7 text-accent shrink-0" />
-							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
+							<BiEnvelope className="w-6 h-6 sm:w-7 sm:h-7 text-accent shrink-0" />
+							{/* UPDATE: Added break-all to prevent long email from breaking layout on small phones */}
+							<p className="text-base sm:text-lg md:text-xl font-semibold text-foreground opacity-90 break-all sm:break-normal">
 								theophilusadesola002@gmail.com
 							</p>
 						</div>
 						<div className="flex items-center space-x-4">
-							<BiMap className="w-7 h-7 text-accent shrink-0" />
-							<p className="text-lg md:text-xl font-semibold text-foreground opacity-90">
+							<BiMap className="w-6 h-6 sm:w-7 sm:h-7 text-accent shrink-0" />
+							<p className="text-base sm:text-lg md:text-xl font-semibold text-foreground opacity-90">
 								Lagos, Nigeria
 							</p>
 						</div>
 					</div>
 
 					{/* Social Icons */}
-					<div className="flex items-center mt-10 space-x-4">
+					<div className="flex items-center mt-8 sm:mt-10 space-x-4">
 						{[
 							{ icon: FaLinkedin, color: "hover:bg-blue-800", url: "" },
 							{ icon: FaTwitter, color: "hover:bg-sky-400", url: "" },
@@ -103,17 +105,17 @@ const Contact = () => {
 							<a
 								key={index}
 								href="#"
-								className={`w-12 h-12 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${color} group`}>
-								<Icon className="text-foreground group-hover:text-white w-5 h-5 transition-colors duration-300" />
+								className={`w-10 h-10 sm:w-12 sm:h-12 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${color} group`}>
+								<Icon className="text-foreground group-hover:text-white w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300" />
 							</a>
 						))}
 					</div>
 				</div>
 
-				{/* Right Side */}
-				<div className="md:p-10 p-6 bg-tertiary-dark rounded-xl shadow-lg">
+				{/* Right Side (Form) */}
+				<div className="p-5 sm:p-6 md:p-10 bg-tertiary-dark rounded-xl shadow-lg">
 					<form onSubmit={formik.handleSubmit} className="space-y-5">
-						{/* Name  */}
+						{/* Name */}
 						<div>
 							<input
 								type="text"
@@ -129,7 +131,7 @@ const Contact = () => {
 							)}
 						</div>
 
-						{/* Email  */}
+						{/* Email */}
 						<div>
 							<input
 								type="email"
@@ -145,7 +147,7 @@ const Contact = () => {
 							)}
 						</div>
 
-						{/* Mobile Number  */}
+						{/* Mobile Number */}
 						<div>
 							<input
 								type="text"
@@ -179,15 +181,20 @@ const Contact = () => {
 
 						{/* Form Status Messages */}
 						{successMessage && (
-							<p className="text-green-500 text-center font-medium text-lg">{successMessage}</p>
+							<p className="text-green-500 text-center font-medium text-base sm:text-lg">
+								{successMessage}
+							</p>
 						)}
-						{errorMessage && <p className="text-red-500 text-center font-medium text-lg">{errorMessage}</p>}
+						{errorMessage && (
+							<p className="text-red-500 text-center font-medium text-base sm:text-lg">{errorMessage}</p>
+						)}
 
 						{/* Submit Button */}
+						{/* UPDATE: Button is now w-full on mobile, and w-[50%] on sm+ screens */}
 						<button
 							type="submit"
 							disabled={isSubmitting}
-							className="w-[50%] px-8 py-2 bg-accent hover:bg-accent-dark text-foreground text-xl font-semibold rounded-full transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed">
+							className="w-full sm:w-[50%] px-8 py-3 bg-accent hover:bg-accent-dark text-foreground text-lg sm:text-xl font-semibold rounded-full transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed">
 							{isSubmitting ? "Sending..." : "Send Message"}
 						</button>
 					</form>

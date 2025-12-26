@@ -3,20 +3,20 @@ import React from "react"
 
 const Projects = () => {
 	return (
-		<div className="container py-16">
+		<div className="container py-16 mb-8" id="projects">
 			<h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-foreground">
 				A small selection of recent <br /> <span className="text-accent">projects</span>
 			</h1>
 			<div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2  gap-10 mt-16">
 				{/* 1 */}
-                <div>
+				<div>
 					<Image src={"/images/p1.jpg"} alt="img" width={800} height={650} className="rounded-lg" />
 					<h1 className="mt-4 text-xl sm:text-2xl font-semibold text-foreground">
 						Modern Finance Dashboard UI
 					</h1>
 					<p className="pt-2 text-lg font-medium text-foreground opacity-70">Apps, UI/UX</p>
 				</div>
-                {/* 2 */}
+				{/* 2 */}
 				<div>
 					<Image src={"/images/p2.jpg"} alt="img" width={800} height={650} className="rounded-lg" />
 					<h1 className="mt-4 text-xl sm:text-2xl font-semibold text-foreground">
