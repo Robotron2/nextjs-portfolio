@@ -7,29 +7,36 @@ export const NavLinks = [
 	// { id: 6, url: "#", label: "Testimonials" },
 	{ id: 7, url: "#contact", label: "Contact" },
 ]
+import { SiSolidity, SiNextdotjs } from "react-icons/si"
+import { FaServer, FaCogs } from "react-icons/fa"
+
 export const ServiceData = [
 	{
 		id: 1,
-		icon: "/images/s1.png",
-		name: "UI/UX",
-		description: "Designing interfaces that are intuiive, efficient and enjoyable to use",
+		icon: SiSolidity,
+		name: "Smart Contract Engineering",
+		description:
+			"Writing secure, gas-optimized Solidity smart contracts for DeFi protocols, NFTs, and DAOs, ensuring vulnerability-free logic.",
 	},
 	{
 		id: 2,
-		icon: "/images/s2.png",
-		name: "UI/UX",
-		description: "Designing interfaces that are intuiive, efficient and enjoyable to use",
+		icon: SiNextdotjs,
+		name: "dApp Frontend Architecture",
+		description:
+			"Building responsive, high-performance decentralized application interfaces using Next.js and Tailwind, integrated with Ethers.js/Wagmi.",
 	},
 	{
 		id: 3,
-		icon: "/images/s3.png",
-		name: "UI/UX",
-		description: "Designing interfaces that are intuiive, efficient and enjoyable to use",
+		icon: FaServer,
+		name: "Full-Stack Web Development",
+		description:
+			"Developing scalable traditional web applications with the MERN stack (MongoDB, Express, React, Node.js) and custom REST APIs.",
 	},
 	{
 		id: 4,
-		icon: "/images/s4.png",
-		name: "UI/UX",
-		description: "Designing interfaces that are intuiive, efficient and enjoyable to use",
+		icon: FaCogs,
+		name: "System Architecture & Logic",
+		description:
+			"Designing complex backend algorithms and map-agnostic logic (like geospatial routing) for custom software solutions.",
 	},
 ]
