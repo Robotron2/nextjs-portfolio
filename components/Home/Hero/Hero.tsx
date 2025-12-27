@@ -73,10 +73,12 @@ const Hero = () => {
 					className="mt-8 flex flex-col sm:flex-row items-center gap-6"
 					data-aos="fade-up"
 					data-aos-delay="800">
-					<button className="px-8 py-3.5 bg-accent hover:bg-accent-dark transition-all duration-300 cursor-pointer rounded-full text-white text-base font-semibold shadow-lg hover:shadow-accent/50 flex items-center">
+					<Link
+						href="#projects"
+						className="px-8 py-3.5 bg-accent hover:bg-accent-dark transition-all duration-300 cursor-pointer rounded-full text-white text-base font-semibold shadow-lg hover:shadow-accent/50 flex items-center">
 						<span>View Projects</span>
 						<BsArrowRight className="w-5 h-5 ml-2" />
-					</button>
+					</Link>
 
 					<div className="flex items-center gap-6">
 						<Link
