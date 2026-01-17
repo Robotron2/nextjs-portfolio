@@ -79,6 +79,24 @@ export const metadata: Metadata = {
 	},
 }
 
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Theophilus Adeleke",
+	url: "https://the0ph1lus.xyz",
+	sameAs: ["https://www.linkedin.com/in/the0ph1lus", "https://github.com/robotron2", "https://x.com/The0_ph1lus"],
+	jobTitle: "Web3 Developer & Mechatronics Engineer",
+	worksFor: {
+		"@type": "Organization",
+		name: "Freelance",
+	},
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Lagos",
+		addressCountry: "Nigeria",
+	},
+}
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -86,11 +104,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="scroll-smooth">
-			<body className={`${poppins.className} antialiased bg-secondary`}>
+			<body className={`${poppins.className} ${poppins.variable} antialiased bg-secondary`}>
 				<ResponsiveNav />
 				{children}
 				<Footer />
 				<ScrollToTop />
+				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 			</body>
 		</html>
 	)
