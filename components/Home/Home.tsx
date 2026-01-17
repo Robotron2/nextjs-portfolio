@@ -24,7 +24,7 @@ const Home = () => {
 		initAOS()
 	}, [])
 	return (
-		<div className="overflow-hidden text-5xl text-foreground">
+		<div className="overflow-hidden text-foreground">
 			<Hero />
 			<Service />
 			<Resume />

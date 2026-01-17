@@ -4,51 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
-
-const projectData = [
-	{
-		id: 1,
-		title: "Gogo Rides - Custom Geospatial SaaS",
-		category: "Fullstack / Web3",
-		image: "/images/p1.jpg",
-		url: "https://gogorides.example.com",
-	},
-	{
-		id: 2,
-		title: "Decentralized Finance Dashboard",
-		category: "Web3 Integration",
-		image: "/images/p2.jpg",
-		url: "https://defidash.example.com",
-	},
-	{
-		id: 3,
-		title: "Smart Contract Audit Tool",
-		category: "Blockchain Security",
-		image: "/images/p3.jpg",
-		url: "https://audit.example.com",
-	},
-	{
-		id: 4,
-		title: "Gogo Rides - Custom Geospatial SaaS",
-		category: "Fullstack / Web3",
-		image: "/images/p1.jpg",
-		url: "https://gogorides.example.com",
-	},
-	{
-		id: 5,
-		title: "Decentralized Finance Dashboard",
-		category: "Web3 Integration",
-		image: "/images/p2.jpg",
-		url: "https://defidash.example.com",
-	},
-	{
-		id: 6,
-		title: "Smart Contract Audit Tool",
-		category: "Blockchain Security",
-		image: "/images/p3.jpg",
-		url: "https://audit.example.com",
-	},
-]
+import { projectData } from "@/constants/data"
 
 const responsive = {
 	superLargeDesktop: {
