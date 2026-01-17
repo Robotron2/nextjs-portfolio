@@ -3,7 +3,7 @@ export const projectData = [
 		id: 1,
 		title: "PulseDelta - Web3 Prediction platform",
 		category: "Fullstack / Web3",
-		image: "/images/gogorides.png",
+		image: "/images/pulsedelta.png",
 		url: "https://pulsedelta.the0ph1lus.xyz",
 	},
 	{
