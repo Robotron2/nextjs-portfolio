@@ -4,6 +4,15 @@ import "./globals.css"
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav"
 import Footer from "@/components/Home/Footer/Footer"
 import ScrollToTop from "@/components/Helper/ScrollToTop"
+import type { Viewport } from "next"
+
+export const viewport: Viewport = {
+	themeColor: "#0f142e",
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 1,
+	userScalable: false, // Prevents zooming like a native app
+}
 
 const poppins = Poppins({
 	subsets: ["latin"],
