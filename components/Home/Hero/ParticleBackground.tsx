@@ -5,8 +5,6 @@ import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { type Container, type ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine"
 import { loadSlim } from "@tsparticles/slim"
 
-// npm install @tsparticles/react @tsparticles/engine @tsparticles/slim
-
 export default function ParticlesHero() {
 	const [init, setInit] = useState(false)
 
@@ -58,7 +56,7 @@ export default function ParticlesHero() {
 				},
 				number: {
 					density: { enable: true, area: 800 },
-					value: 60,
+					value: 30,
 				},
 				opacity: { value: 0.5 },
 				shape: { type: "circle" },
@@ -66,7 +64,7 @@ export default function ParticlesHero() {
 			},
 			detectRetina: true,
 		}),
-		[]
+		[],
 	)
 
 	if (!init) return null

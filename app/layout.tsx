@@ -9,12 +9,14 @@ const poppins = Poppins({
 	subsets: ["latin"],
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 	style: ["normal", "italic"],
+	display: "swap",
 	variable: "--font-poppins",
 })
 
 const baseUrl = "https://the0ph1lus.xyz"
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://the0ph1lus.xyz"),
 	title: {
 		default: "Theophilus Adeleke | Full Stack Web3 Developer & Mechatronics Engineer",
 		template: "%s | Theophilus Adeleke",
